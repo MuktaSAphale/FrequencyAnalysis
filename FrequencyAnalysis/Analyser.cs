@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace FrequencyAnalysis
 {
-    class FrequencyAnalysis
+    public class Analyser
     {
         private List<char> excludeCharsList = new List<char> { ' ', '\n', '\t', '\r' };
         private string text { get; set; }
@@ -14,7 +14,7 @@ namespace FrequencyAnalysis
 
         private int charCountLinq = 0;
 
-        public FrequencyAnalysis(string text)
+        public Analyser(string text)
         {
             this.text = text;
         }

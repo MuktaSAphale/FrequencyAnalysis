@@ -23,12 +23,12 @@ namespace FrequencyAnalysis
                 if ((args.Count() == 2) && (args[1] != null) && (args[1].Equals("ignorecase")))
                     text = text.ToUpper();
 
-                FrequencyAnalysis analyse = new FrequencyAnalysis(text);
+                Analyser analyser = new Analyser(text);
 
                  Console.WriteLine("Solution using Dictonary");
-                var charFrequency = analyse.DirectorySolution();
+                var charFrequency = analyser.DirectorySolution();
 
-                Console.WriteLine("Total Number of Charachters " + analyse.GetCharCountDirectory());
+                Console.WriteLine("Total Number of Charachters " + analyser.GetCharCountDirectory());
                 foreach (KeyValuePair<char, int> keyValuePair in charFrequency.OrderByDescending(key => key.Value).Take(10))
                 {
                     Console.WriteLine("{0} ({1})", keyValuePair.Key, keyValuePair.Value);
@@ -37,9 +37,9 @@ namespace FrequencyAnalysis
                 Console.WriteLine("===========================");
                 Console.WriteLine("Solution using LINQ");
                 
-                var alphabetsCount = analyse.LinqSolution();
+                var alphabetsCount = analyser.LinqSolution();
 
-                Console.WriteLine("Total Number of Charachters " + analyse.getCharCountLinq());
+                Console.WriteLine("Total Number of Charachters " + analyser.getCharCountLinq());
                 foreach (KeyValuePair<char, int> keyValuePair in alphabetsCount.OrderByDescending(key => key.Value).Take(10))
                 {
                     Console.WriteLine("{0} ({1})", keyValuePair.Key, keyValuePair.Value);
