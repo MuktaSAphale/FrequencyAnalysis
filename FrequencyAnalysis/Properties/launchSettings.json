@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FrequencyAnalysis": {
+      "commandName": "Project",
+      "commandLineArgs": "sample.txt",
+      "workingDirectory": "C:\\Users\\mukta\\OneDrive\\Desktop\\Mukta\\Mukta\\Career\\Programming Test\\Sword"
+    }
+  }
+}
