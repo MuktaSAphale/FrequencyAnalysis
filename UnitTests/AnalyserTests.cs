@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class AnalyserTests
 {
     [Test]
-    public void DirectorySolution_ReturnsCorrectFrequencies()
+    public void ReturnsCorrectFrequencies()
     {
         var analyser = new Analyser("hello world");
         var result = analyser.GetCharCount();
@@ -68,11 +68,11 @@ public class AnalyserTests
         var input = "hello world";
         var analyzer = new Analyser(input);
 
-        // Fetch frequency results using DirectorySolution or LinqSolution
+        // Fetch frequency results using both methods
         var dictResult = analyzer.GetCharCount();
         var linqResult = analyzer.GetCharCountLinq();
 
-        // Dictionary-based solution
+        
         Assert.That(dictResult['h'], Is.EqualTo(1));
         Assert.That(dictResult['e'], Is.EqualTo(1));
         Assert.That(dictResult['l'], Is.EqualTo(3));
