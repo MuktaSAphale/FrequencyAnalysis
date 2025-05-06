@@ -25,7 +25,6 @@ namespace FrequencyAnalysis
 
                 Analyser analyser = new Analyser(text);
 
-                 Console.WriteLine("Solution using Dictonary");
                 var charFrequency = analyser.GetCharCount();
 
                 Console.WriteLine("Total Number of Charachters " + analyser.GetTotalCharCount());
