@@ -26,9 +26,9 @@ namespace FrequencyAnalysis
                 Analyser analyser = new Analyser(text);
 
                  Console.WriteLine("Solution using Dictonary");
-                var charFrequency = analyser.DirectorySolution();
+                var charFrequency = analyser.GetCharCount();
 
-                Console.WriteLine("Total Number of Charachters " + analyser.GetCharCountDirectory());
+                Console.WriteLine("Total Number of Charachters " + analyser.GetTotalCharCount());
                 foreach (KeyValuePair<char, int> keyValuePair in charFrequency.OrderByDescending(key => key.Value).Take(10))
                 {
                     Console.WriteLine("{0} ({1})", keyValuePair.Key, keyValuePair.Value);
@@ -37,9 +37,9 @@ namespace FrequencyAnalysis
                 Console.WriteLine("===========================");
                 Console.WriteLine("Solution using LINQ");
                 
-                var alphabetsCount = analyser.LinqSolution();
+                var alphabetsCount = analyser.GetCharCountLinq();
 
-                Console.WriteLine("Total Number of Charachters " + analyser.getCharCountLinq());
+                Console.WriteLine("Total Number of Charachters " + analyser.getTotalCharCountLinq());
                 foreach (KeyValuePair<char, int> keyValuePair in alphabetsCount.OrderByDescending(key => key.Value).Take(10))
                 {
                     Console.WriteLine("{0} ({1})", keyValuePair.Key, keyValuePair.Value);

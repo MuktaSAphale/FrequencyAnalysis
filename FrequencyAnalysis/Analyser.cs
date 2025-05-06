@@ -10,27 +10,27 @@ namespace FrequencyAnalysis
         private List<char> excludeCharsList = new List<char> { ' ', '\n', '\t', '\r' };
         private string text { get; set; }
 
-        private int charCountDirectory = 0;
+        private int totalCharCount = 0;
 
-        private int charCountLinq = 0;
+        private int totalCharCountLinq = 0;
 
         public Analyser(string text)
         {
             this.text = text;
         }
 
-        public int GetCharCountDirectory()
+        public int GetTotalCharCount()
         {
-            return charCountDirectory;
+            return totalCharCount;
         }
 
-        public int getCharCountLinq() 
+        public int getTotalCharCountLinq() 
         {
-            return charCountLinq;
+            return totalCharCountLinq;
                 
         }
 
-        public Dictionary<char, int> DirectorySolution()
+        public Dictionary<char, int> GetCharCount()
         {
             /* Solution without using LINQ */           
              var charFrequency = new Dictionary<char, int>();
@@ -42,16 +42,16 @@ namespace FrequencyAnalysis
                         charFrequency[c]++;
                     else
                         charFrequency[c] = 1;
-                    this.charCountDirectory++;
+                    this.totalCharCount++;
                 }
             }
             return charFrequency;
         }
 
-        public Dictionary<char, int> LinqSolution()
+        public Dictionary<char, int> GetCharCountLinq()
         {
              /* Solution using LINQ */
-            charCountLinq = text.Select(x => x).Where(x => !excludeCharsList.Contains(x)).Count();
+            totalCharCountLinq = text.Select(x => x).Where(x => !excludeCharsList.Contains(x)).Count();
 
             Dictionary<char, int> alphabetsCount = text
                                 .GroupBy(x => x)

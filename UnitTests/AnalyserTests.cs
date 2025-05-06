@@ -9,7 +9,7 @@ public class AnalyserTests
     public void DirectorySolution_ReturnsCorrectFrequencies()
     {
         var analyser = new Analyser("hello world");
-        var result = analyser.DirectorySolution();
+        var result = analyser.GetCharCount();
 
         var expected = new Dictionary<char, int>
         {
@@ -17,14 +17,14 @@ public class AnalyserTests
         };
 
         CollectionAssert.AreEquivalent(expected, result);
-        Assert.That(analyser.GetCharCountDirectory(), Is.EqualTo(10));  // excludes space
+        Assert.That(analyser.GetTotalCharCount(), Is.EqualTo(10));  // excludes space
     }
 
     [Test]
     public void LinqSolution_ReturnsCorrectFrequencies()
     {
         var analyser = new Analyser("hello world");
-        var result = analyser.LinqSolution();
+        var result = analyser.GetCharCountLinq();
 
         var expected = new Dictionary<char, int>
         {
@@ -32,33 +32,33 @@ public class AnalyserTests
         };
 
         CollectionAssert.AreEquivalent(expected, result);
-        Assert.That(analyser.getCharCountLinq(), Is.EqualTo(10));  // excludes space
+        Assert.That(analyser.getTotalCharCountLinq(), Is.EqualTo(10));  // excludes space
     }
 
     [Test]
     public void EmptyString_ReturnsEmptyResults()
     {
         var analyser = new Analyser("");
-        var dictResult = analyser.DirectorySolution();
-        var linqResult = analyser.LinqSolution();
+        var dictResult = analyser.GetCharCount();
+        var linqResult = analyser.GetCharCountLinq();
 
         Assert.IsEmpty(dictResult);
         Assert.IsEmpty(linqResult);
-        Assert.That(analyser.GetCharCountDirectory(), Is.EqualTo(0));
-        Assert.That(analyser.getCharCountLinq(), Is.EqualTo(0));
+        Assert.That(analyser.GetTotalCharCount(), Is.EqualTo(0));
+        Assert.That(analyser.getTotalCharCountLinq(), Is.EqualTo(0));
     }
 
     [Test]
     public void OnlyWhitespace_ReturnsEmptyFrequencies()
     {
         var analyser = new Analyser(" \t\r\n");
-        var dictResult = analyser.DirectorySolution();
-        var linqResult = analyser.LinqSolution();
+        var dictResult = analyser.GetCharCount();
+        var linqResult = analyser.GetCharCountLinq();
 
         Assert.IsEmpty(dictResult);
         Assert.IsEmpty(linqResult);
-        Assert.That(analyser.GetCharCountDirectory(), Is.EqualTo(0));
-        Assert.That(analyser.getCharCountLinq(), Is.EqualTo(0));
+        Assert.That(analyser.GetTotalCharCount(), Is.EqualTo(0));
+        Assert.That(analyser.getTotalCharCountLinq(), Is.EqualTo(0));
     }
 
     [Test]
@@ -69,8 +69,8 @@ public class AnalyserTests
         var analyzer = new Analyser(input);
 
         // Fetch frequency results using DirectorySolution or LinqSolution
-        var dictResult = analyzer.DirectorySolution();
-        var linqResult = analyzer.LinqSolution();
+        var dictResult = analyzer.GetCharCount();
+        var linqResult = analyzer.GetCharCountLinq();
 
         // Dictionary-based solution
         Assert.That(dictResult['h'], Is.EqualTo(1));
